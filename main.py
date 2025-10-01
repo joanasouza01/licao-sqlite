@@ -65,3 +65,21 @@ def atualizar_livros():
     conexao.commit()
 
 atualizar_livros()
+
+#remoção de livros 
+def remover_livro():
+    try:
+        conexao = sqlite3.connect("biblioteca.db")
+        cursor = conexao.cursor()
+
+        id = int(input("digite o id do livro que queira remover: "))
+        cursor.execute("DELETE FROM livros WHERE id = ?", (id,))
+        conexao.commit()
+        print("livro removido com sucesso!")
+
+    except Exception as ex:
+        print("erro ao tentar remover!: ", ex)
+
+    finally:
+        conexao.close()
+
