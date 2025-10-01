@@ -19,3 +19,19 @@ CREATE TABLE IF NOT EXISTS livros (
 """)
 
 print("Tabela criada com sucesso")
+
+#inserir um livro o banco de dados 
+def cadastrar_livro(nomelivro, autor, ano):
+    cursor.execute("""
+    INSERT INTO livros (titulo, autor, ano, disponivel) 
+    VALUES (?, ?, ?, 'sim')
+    """, (nomelivro, autor, ano) )
+    conexao.commit()
+
+    print("livro cadastrado com sucesso!")
+    
+nomelivro = input("digite o nome do livro que deseja inserir: ")
+autor = input("digite o nome do autor: ")
+ano = int(input("digite o ano em que o livro foi postado: "))
+
+cadastrar_livro(nomelivro, autor, ano)
