@@ -45,3 +45,23 @@ def listar_livros():
     for linha in livros:
         print(f"id: {linha[0]} | titulo: {linha[1]} | autor: {linha[2]} | ano: {linha[3]} | disponivel: {linha[4]}")
     conexao.close()
+
+
+#atualização de disponibilidade
+def atualizar_livros():
+    id = int(input("digite o id do livro que deseja pegar: "))
+    while True: 
+        disponivel = input("Deixar disponivel ou não (sim ou não): ").lower()
+        if disponivel == "sim" or disponivel == "não":
+            break
+        else:
+            print("Digite apenas sim ou não para deixar disponivel.")
+    cursor.execute("""
+    UPDATE livros
+    SET disponivel = ? 
+    WHERE id = ?
+    """, (disponivel,id)
+    )
+    conexao.commit()
+
+atualizar_livros()
