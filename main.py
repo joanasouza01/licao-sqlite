@@ -35,3 +35,13 @@ autor = input("digite o nome do autor: ")
 ano = int(input("digite o ano em que o livro foi postado: "))
 
 cadastrar_livro(nomelivro, autor, ano)
+
+
+#listagem de livros
+def listar_livros():
+    cursor.execute("SELECT * FROM livros")
+    livros = cursor.fetchall()
+    #exibir colunas
+    for linha in livros:
+        print(f"id: {linha[0]} | titulo: {linha[1]} | autor: {linha[2]} | ano: {linha[3]} | disponivel: {linha[4]}")
+    conexao.close()
