@@ -43,7 +43,7 @@ def listar_livros():
 
 #atualização de disponibilidade
 def atualizar_livros():
-    
+    id = int(input("digite o id do livro que deseja pegar: "))
     while True: 
         disponivel = input("Deixar disponivel ou não (sim ou não): ").lower()
         if disponivel == "sim" or disponivel == "não":
@@ -57,8 +57,6 @@ def atualizar_livros():
     """, (disponivel,id)
     )
     conexao.commit()
-
-atualizar_livros()
 
 #remoção de livros 
 def remover_livro():
