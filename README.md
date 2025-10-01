@@ -1,0 +1,1 @@
+Este é um sistema de biblioteca em Python com SQLite. Permite cadastrar livros, listar todos, atualizar disponibilidade e remover pelo ID. Os dados ficam salvos no arquivo "biblioteca.db" e todas as ações são feitas pelo menu interativo.
