@@ -30,12 +30,6 @@ def cadastrar_livro(nomelivro, autor, ano):
 
     print("livro cadastrado com sucesso!")
     
-nomelivro = input("digite o nome do livro que deseja inserir: ")
-autor = input("digite o nome do autor: ")
-ano = int(input("digite o ano em que o livro foi postado: "))
-
-cadastrar_livro(nomelivro, autor, ano)
-
 
 #listagem de livros
 def listar_livros():
@@ -49,7 +43,7 @@ def listar_livros():
 
 #atualização de disponibilidade
 def atualizar_livros():
-    id = int(input("digite o id do livro que deseja pegar: "))
+    
     while True: 
         disponivel = input("Deixar disponivel ou não (sim ou não): ").lower()
         if disponivel == "sim" or disponivel == "não":
@@ -82,4 +76,36 @@ def remover_livro():
 
     finally:
         conexao.close()
+
+#menu
+
+while True:
+    print("1 - cadastrar livro")
+    print("2 - listar livro")
+    print("3 - atualizar disponibilidade")
+    print("4 - remover livro")
+    print("5 - sair")
+
+    opcao = input("escolha uma opcão: ")
+    
+    if opcao == "1":
+        nomelivro = input("digite o nome do livro que deseja inserir: ")
+        autor = input("digite o nome do autor: ")
+        ano = int(input("digite o ano em que o livro foi postado: "))
+        cadastrar_livro(nomelivro, autor, ano)
+
+    elif opcao == "2":
+        listar_livros()
+
+    elif opcao == "3":
+        atualizar_livros()
+
+    elif opcao == "4":
+        remover_livro()
+
+    else:
+        print("saindo")
+        break
+
+
 
